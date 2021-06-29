@@ -1,12 +1,28 @@
-const APY_CLIMA_KEY = "3857dc3acb99a8e64fcea6c1d8c2f00e";
+const APY_CLIMA_KEY ="05d15a22fc70a03fd6b58ce55c838b91";
 
 const fetchData = position =>{
     const {latitude, longitude}= position.coords;
-    fetch(`api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid={API key};`)
-    console.log(position)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?units=metric&lat=${latitude}&lon=${longitude}&appid=${APY_CLIMA_KEY}`)
+        .then(response => response.json())
+        .then(data => setWeatherData(data))
+};
+
+const setWeatherData = data =>{
+    console.log(data);
+    const weatherData = {
+        location:data.name,
+        description:data.weather[0].main,
+        humedad:data.main.humidity,
+        presion:data.main.pressure,
+        temperatura:data.main.temp,
+        date:"data",
+    }
+    Object.keys(weatherData).forEach ( key =>{
+        document.getElementById(key).textContent = weatherData[key];
+    });
 };
 
 
 const onload = () =>{
-    navigator.geolocation.getCurrentPosition(log);
+    navigator.geolocation.getCurrentPosition(fetchData);
 };
