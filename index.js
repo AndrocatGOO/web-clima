@@ -15,12 +15,17 @@ const setWeatherData = data =>{
         humedad:data.main.humidity,
         presion:data.main.pressure,
         temperatura:data.main.temp,
-        date:"data",
+        date:getDate(),
     }
     Object.keys(weatherData).forEach ( key =>{
         document.getElementById(key).textContent = weatherData[key];
     });
 };
+
+const getDate = () =>{
+    let date = new Date();
+    return `${date.getDate()}-${date.getMonth()+1}-${date.getYear()+1900}`;
+}
 
 
 const onload = () =>{
