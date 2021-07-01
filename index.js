@@ -30,6 +30,7 @@ const getDate = ()
 }
 
 
-const onload = () => {
+const onload = () => 
+{
     navigator.geolocation.getCurrentPosition(fetchData);
 };
