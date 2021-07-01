@@ -3,8 +3,8 @@ const APY_CLIMA_KEY = "05d15a22fc70a03fd6b58ce55c838b91";
 const fetchData = position => {
     const { latitude, longitude } = position.coords;
     fetch(`http://api.openweathermap.org/data/2.5/weather?units=metric&lat=${latitude}&lon=${longitude}&appid=${APY_CLIMA_KEY}`)
-    .then(response => response.json())
-    .then(data => setWeatherData(data))
+        .then(response => response.json())
+        .then(data => setWeatherData(data))
 };
 
 const setWeatherData = data => {
@@ -22,15 +22,12 @@ const setWeatherData = data => {
     });
 };
 
-const getDate = () 
-=>   
-{
+const getDate = () => {
     let date = new Date();
-    return `${date.getDate()}-${date.getMonth() + 1}-${date.getYear() + 1900}`;
+    return `${("0" + (date.getDate())).slice(-2)}-${("0" + (date.getMonth() + 1)).slice(-2)}-${date.getYear() + 1900}`;
 }
 
 
-const onload = () => 
-{
+const onload = () => {
     navigator.geolocation.getCurrentPosition(fetchData);
 };
