@@ -31,3 +31,17 @@ const getDate = () => {
 const onload = () => {
     navigator.geolocation.getCurrentPosition(fetchData);
 };
+
+var fondo = document.getElementById('fondo');
+
+var description = document.getElementById("description");
+console.log(description.textContent);
+
+if (description.textContent == "Clouds") {
+    fondo.style.backgroundColor = '#000000';
+} else {
+    fondo.style.backgroundColor = '#ffffff';
+}
+
+let frutas = [1, 2, 3, 4];
+console.log(frutas[1])

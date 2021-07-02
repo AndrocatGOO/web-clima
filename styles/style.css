@@ -12,6 +12,27 @@ body {
     align-items: center;
 }
 
-#info {
-    background-color: rgba(255, 255, 255, 0.452);
+#container{
+    justify-content: center;
+    align-items: center;
 }
+
+#screen{
+    height: 20vh;
+    width: 40vw;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.452);
+    backdrop-filter: blur(5px);
+}
+
+#info {
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+/*#fondo{
+    background-color: none;
+}*/
+
